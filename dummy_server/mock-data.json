@@ -1,0 +1,34 @@
+{
+  "size": [
+    {
+      "name": "Small",
+      "imagePath": "/images/small.png"
+    },
+    {
+      "name": "Medium",
+      "imagePath": "/images/medium.png"
+    },
+    {
+      "name": "Large",
+      "imagePath": "/images/large.png"
+    }
+  ],
+  "toppings": [
+    {
+      "name": "Olives",
+      "imagePath": "/images/olives.png"
+    },
+    {
+      "name": "Pepperoni",
+      "imagePath": "/images/mushroom.png"
+    },
+    {
+      "name": "Mushroom",
+      "imagePath": "/images/pepperoni.png"
+    },
+    {
+      "name": "Pepper",
+      "imagePath": "/images/pepper.png"
+    }
+  ]
+}
