@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row'
 import { useEffect, useState, FC } from 'react'
 import PizzaSizes from './PizzaSizes'
 import Toppings from './Toppings'
+import Alert from '../common/Alert'
 
 interface Option {
     optionType: string
@@ -17,6 +18,7 @@ interface Items {
 const Options: FC<Option> = ({ optionType }) => {
     //useState to store a local copy of data
     const [items, setItems] = useState([])
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         axios.get(`http://localhost:5000/${optionType}`)
@@ -24,9 +26,13 @@ const Options: FC<Option> = ({ optionType }) => {
                 setItems(response.data)
             })
             .catch(error => {
-                //Write it later
+                setError(true)
             })
     }, [optionType])
+
+    if(error){
+        return <Alert />
+    }
     
     const ItemComponent:any = optionType === 'pizza' ? PizzaSizes : Toppings
 

@@ -15,7 +15,7 @@ export const handlers = [
         return res (
             ctx.json([
                 {name: "olives", imagePath: "/images/olives.jpeg"},
-                {name: "mushroom", imagePath: "/images/mushrooms.jpeg"},
+                {name: "mushroom", imagePath: "/images/mushroom.jpeg"},
                 {name: "pepperoni", imagePath: "/images/pepperoni.jpeg"},
                 {name: "pepper", imagePath: "/images/pepper.jpeg"}
             ])

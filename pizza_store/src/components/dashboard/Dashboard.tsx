@@ -1,8 +1,11 @@
-import React from 'react'
+import Options from './Options'
 
 const Dashboard = () => {
     return (
-        <h1>Dashboard Container</h1>
+        <div>
+            <Options optionType="pizza" />
+            <Options optionType="toppings" />
+        </div>
     )
 }
 
