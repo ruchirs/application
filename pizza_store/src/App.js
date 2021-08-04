@@ -1,11 +1,15 @@
-import "./App.css";
+import Container from 'react-bootstrap/Container';
 import Dashboard from './pages/Dashboard'
+import { OrderDetailsProvider } from './context/OrderDetails'
+import './Styles/Base.css'
 
 function App() {
   return (
-    <div className="App">
-      <Dashboard />
-    </div>
+    <Container>
+      <OrderDetailsProvider>
+        <Dashboard />
+      </OrderDetailsProvider>
+    </Container>
   );
 }
 

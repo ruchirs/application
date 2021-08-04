@@ -1,5 +1,6 @@
-import { screen, render } from '@testing-library/react'
+import { screen, render } from '../../../test-utils/testing-library-utils'
 import Options from '../Options'
+import { OrderDetailsProvider } from '../../../context/OrderDetails'
 
 test('Check if all options render images', async () => {
 
