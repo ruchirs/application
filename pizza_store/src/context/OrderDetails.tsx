@@ -10,6 +10,15 @@ interface AppContext {
     }
 }
 
+interface userType {
+    userName: string,
+    phoneNumber: string,
+    houseNumber: string,
+    streetName: string,
+    postalCode: string,
+    city: string
+}
+
 const OrderDetails = createContext<AppContext | any>(null)
 
 function formatCurrency(amount: number){
@@ -48,12 +57,25 @@ export function OrderDetailsProvider(props: any) {
         toppings: new Map()
     })
 
+    const [userData, setUserData] = useState({
+        userName: '',
+        phoneNumber: "",
+        houseNumber: '',
+        streetName: '',
+        postalCode: "",
+        city: ''
+    })
+
     const initialCurrency = formatCurrency(0)
     const [total, setTotal] = useState({
         pizza: initialCurrency,
         toppings: initialCurrency,
         grandTotal: initialCurrency
     })
+
+    useEffect(() => {
+        console.log('updated user data', userData)
+    }, [userData])
 
     useEffect(() => {
         const pizzaSubTotal = calculateSubTotal("pizza", optionCounts)
@@ -69,9 +91,6 @@ export function OrderDetailsProvider(props: any) {
     const value = useMemo(() => {
 
         function updateItemCount(itemName: string, newItemCount: string, optionType: keyof typeof optionCounts) {
-            // console.log('itemName', itemName)
-            // console.log('newItemCount', newItemCount)
-            // console.log('optionType', optionType)
             if(optionType === 'pizza') {
                 const newOptionsCounts = { ...optionCounts } 
                 console.log('newOptionsCounts', newOptionsCounts[optionType].clear())   
@@ -80,12 +99,14 @@ export function OrderDetailsProvider(props: any) {
             const optionCountMap = optionCounts[optionType]
             optionCountMap.set(itemName, parseInt(newItemCount))
             setOptionCounts(newOptionsCount)
-
-
-
         }
 
-        return [{ ...optionCounts, total}, updateItemCount]
-    }, [optionCounts, total])
+        function updateUserInformation(values: userType) {
+            const updatedUserData = {...values}
+            setUserData(updatedUserData)
+        }
+
+        return [{ ...optionCounts, total, userData}, updateItemCount, updateUserInformation]
+    }, [optionCounts, total, userData])
     return <OrderDetails.Provider value={value} {...props} />
 }

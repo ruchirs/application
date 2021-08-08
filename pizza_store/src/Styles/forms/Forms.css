@@ -1,0 +1,33 @@
+.container {
+  margin-top: 5%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.formDiv {
+  width: 400px;
+  padding: 20px;
+}
+
+.alert {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.creditCard {
+  margin-bottom: 10%;
+}
+
+.formFields {
+  margin: 10px 0px;
+}
+
+.align-text {
+  text-align: center;
+}
+/*# sourceMappingURL=Forms.css.map */
