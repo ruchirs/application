@@ -13,3 +13,9 @@
 6. The Server and Front-end portal have started.
 
 7. To run the test, execute the command `npm run test` inside both of the directories.
+
+8. When using the portal,
+    a. select the pizza and toppings, the price is calculated dynamically.
+    b. fill in the address.
+    c. validate the card component.
+    Test Card Number : 4111 1111 1111 1111
